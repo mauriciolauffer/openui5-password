@@ -1,0 +1,10 @@
+.idea/
+build/
+coverage/
+data/logs/
+node_modules/
+resources/
+.env
+.env.*
+*.log
+.nyc_output/
