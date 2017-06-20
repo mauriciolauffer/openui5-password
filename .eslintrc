@@ -5,7 +5,8 @@
   "globals": {
     "sap": true,
     "jQuery": true,
-    "QUnit": true
+    "QUnit": true,
+    "zxcvbn": true
   },
   "rules": {
     "comma-dangle": [2, "never"],

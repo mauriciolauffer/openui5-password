@@ -36,7 +36,8 @@ const banner = ['/**',
 gulp.task('lint', () => {
   gulp.src([filePath.src + '.js'])
     .pipe(eslint())
-    .pipe(eslint.format());
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 /**
@@ -121,5 +122,5 @@ gulp.task('buildlibrary', ['lint', 'clean', 'scripts-min', 'scripts-dbg', 'scrip
  */
 gulp.task('build', (cb) => {
   //sequence(['lint', 'test'], 'buildlibrary', cb);
-  sequence('buildlibrary', cb);
+  sequence(['lint'], 'buildlibrary', cb);
 });
