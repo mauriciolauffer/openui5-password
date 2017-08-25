@@ -6,9 +6,9 @@ sap.ui.define([
   'sap/m/StandardListItem',
   'sap/ui/core/ValueState',
   './PasswordRenderer',
-  './library',
-  './thirdparty/zxcvbn'
-], function(jQuery, InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer) {
+  './thirdparty/zxcvbn',
+  './library'
+], function(jQuery, InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer, zxcvbnUI5) {
   'use strict';
 
   /**
