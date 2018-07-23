@@ -2,6 +2,7 @@
   "name": "openui5-password",
   "version": "0.0.3",
   "description": "An OpenUI5 Control which checks password strength and validates it against predefined rules",
+  "homepage": "https://github.com/mauriciolauffer/openui5-password#readme",
   "author": "Mauricio Lauffer",
   "license": "MIT",
   "keywords": [
@@ -13,28 +14,30 @@
     "input",
     "control"
   ],
-  "devDependencies": {
-    "eslint": "^4.6.1",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-eslint": "^4.0.0",
-    "gulp-header": "^1.8.9",
-    "gulp-qunit": "^1.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-serve": "^1.4.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-ui5-preload": "^1.3.1",
-    "http-server": "^0.10.0",
-    "pump": "^1.0.2",
-    "run-sequence": "^2.1.0"
-  },
+  "main": "dist/openui5/password/library-preload.js",
   "dependencies": {
+    "@openui5/sap.m": "^1.56.4",
+    "@openui5/sap.ui.core": "^1.56.4",
+    "@openui5/themelib_sap_belize": "^1.56.4",
     "zxcvbn": "^4.4.2"
   },
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "karma": "^2.0.4",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-coveralls": "^2.0.0",
+    "karma-openui5": "^0.2.3",
+    "karma-qunit": "^2.1.0",
+    "qunit": "^2.6.1"
+  },
   "scripts": {
-    "build": "gulp build",
-    "serve": "http-server -p 8080 ."
+    "start": "ui5 serve",
+    "build": "ui5 build",
+    "test": "karma start",
+    "test-ci": "karma start karma.ci.conf",
+    "preversion": "npm run test-ci",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",

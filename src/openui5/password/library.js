@@ -14,7 +14,7 @@ sap.ui.define([
    * @public
    */
   // delegate further initialization of this library to the Core
-  var openui5 = {};
+  const openui5 = {};
   sap.ui.getCore().initLibrary({
     name: 'openui5.password',
     dependencies: [

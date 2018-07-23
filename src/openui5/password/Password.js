@@ -20,7 +20,7 @@ sap.ui.define([
    *
    * Password extends the InputBase
    */
-  var Password = InputBase.extend('Password', {
+  const Password = InputBase.extend('Password', {
     metadata : {
       library : 'openui5.password',
       properties : {
@@ -95,7 +95,7 @@ sap.ui.define([
     if (oEvent.isMarked('invalid')) {
       return;
     }
-    var score = this._calculateScore(this._$input.val());
+    const score = this._calculateScore(this._$input.val());
     this._setStatus(score);
     this.setScore(score);
   };
@@ -143,7 +143,7 @@ sap.ui.define([
    * @private
    */
   Password.prototype._showPasswordErrors = function() {
-    var errors = this._getPasswordErrors(this._$input.val());
+    const errors = this._getPasswordErrors(this._$input.val());
     if (errors.length > 0) {
       this._getPopover(errors).openBy(this);
       this.setValueState(ValueState.Error);
@@ -186,7 +186,7 @@ sap.ui.define([
    * @param {array} errors - Array with all errors to be displayed
    */
   Password.prototype._addPasswordErrorsToPopover = function(errors) {
-    var list = this._popover.getContent()[0];
+    const list = this._popover.getContent()[0];
     list.removeAllItems();
     list.destroyItems();
     errors.forEach(function(item) {
@@ -202,9 +202,9 @@ sap.ui.define([
    */
   Password.prototype._getPasswordErrors = function(value) {
     this.destroyAggregation('errorItems');
-    var that = this;
-    var errors = [];
-    var regxp = /\d/;
+    const that = this;
+    const errors = [];
+    let regxp = /\d/;
     if (this.getRequireNumbers() && !regxp.test(value)) {
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NUMBER'),
@@ -284,7 +284,7 @@ sap.ui.define([
    * @param {int} score - The score value
    */
   Password.prototype._setStatus = function(score) {
-    var status = this._getStatus(score);
+    const status = this._getStatus(score);
     this.setValueState(status.state);
     this.setValueStateText(status.text);
   };
@@ -296,7 +296,7 @@ sap.ui.define([
    * @return {object} The status object
    */
   Password.prototype._getStatus = function(score) {
-    var status = {
+    let status = {
       state: ValueState.None,
       text: ''
     };

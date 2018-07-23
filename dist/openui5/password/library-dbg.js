@@ -1,9 +1,3 @@
-/**
- * openui5-password - An OpenUI5 Control to allow you to check your password strength and validate it
- * @author Mauricio Lauffer
- * @version 0.0.1
- * @license MIT
- */
 sap.ui.define([
   'jquery.sap.global',
   'sap/ui/core/library'
@@ -16,11 +10,11 @@ sap.ui.define([
    * @namespace
    * @name openui5.password
    * @author Mauricio Lauffer
-   * @version ${version}
+   * @version 0.0.3
    * @public
    */
   // delegate further initialization of this library to the Core
-  var openui5 = {};
+  const openui5 = {};
   sap.ui.getCore().initLibrary({
     name: 'openui5.password',
     dependencies: [
@@ -31,7 +25,7 @@ sap.ui.define([
     controls: ['openui5.password.Password'],
     elements: [],
     noLibraryCSS: true,
-    version: '${version}'
+    version: '0.0.3'
   });
 
   return openui5.password;

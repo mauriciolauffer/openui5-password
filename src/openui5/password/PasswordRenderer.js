@@ -13,7 +13,7 @@ sap.ui.define([
    *
    * PasswordRenderer extends the InputBaseRenderer
    */
-  var PasswordRenderer = Renderer.extend(InputBaseRenderer);
+  const PasswordRenderer = Renderer.extend(InputBaseRenderer);
 
   /**
    * add extra attributes to Password

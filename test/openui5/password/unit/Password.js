@@ -4,9 +4,7 @@ sap.ui.require([
   'sap/m/List',
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
-  'openui5/password/Password',
-  'sap/ui/thirdparty/sinon',
-  'sap/ui/thirdparty/sinon-qunit'
+  'openui5/password/Password'
 ], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password) {
   'use strict';
 

@@ -1,9 +1,3 @@
-/**
- * openui5-password - An OpenUI5 Control to allow you to check your password strength and validate it
- * @author Mauricio Lauffer
- * @version 0.0.1
- * @license MIT
- */
 sap.ui.define([
   'jquery.sap.global',
   'sap/ui/core/Renderer',
@@ -19,7 +13,7 @@ sap.ui.define([
    *
    * PasswordRenderer extends the InputBaseRenderer
    */
-  var PasswordRenderer = Renderer.extend(InputBaseRenderer);
+  const PasswordRenderer = Renderer.extend(InputBaseRenderer);
 
   /**
    * add extra attributes to Password
