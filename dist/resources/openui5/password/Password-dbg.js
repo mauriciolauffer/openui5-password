@@ -16,7 +16,7 @@ sap.ui.define([
    *
    * @namespace
    * @author Mauricio Lauffer
-   * @version 0.0.3
+   * @version 0.1.0
    *
    * Password extends the InputBase
    */

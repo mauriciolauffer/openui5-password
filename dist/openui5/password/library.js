@@ -1,1 +1,0 @@
-sap.ui.define(["jquery.sap.global","sap/ui/core/library"],function(e){"use strict";const s={};sap.ui.getCore().initLibrary({name:"openui5.password",dependencies:["sap.ui.core","sap.m"],interfaces:[],controls:["openui5.password.Password"],elements:[],noLibraryCSS:true,version:"0.0.3"});return s.password},false);
