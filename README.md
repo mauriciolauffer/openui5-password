@@ -3,7 +3,9 @@ An OpenUI5 Control which checks password strength and validates it against pre-d
 The control is an input with password type and parameters to enable validation rules.
 
 ## Demo
-You can checkout a live demo here: https://embed.plnkr.co/RQOs7l
+You can checkout a live demo here:
+
+https://htmlpreview.github.io/?https://github.com/mauriciolauffer/openui5-password/blob/master/demo/webapp/index.html
 
 [<img src="openui5-password.png">](https://raw.githubusercontent.com/mauriciolauffer/openui5-password/master/openui5-password.png)
 
