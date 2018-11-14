@@ -1,0 +1,15 @@
+<mvc:View controllerName="mlauffer.demo.openui5.password.controller.App" displayBlock="true"
+          xmlns:mvc="sap.ui.core.mvc" xmlns:pwd="openui5.password" xmlns="sap.m">
+    <Shell>
+        <App>
+            <Page id="page" title="{i18n>TITLE}">
+                <VBox class="sapUiMediumMargin">
+                    <Label text="{i18n>standard}" />
+                    <Input type="Password" />
+                    <Label text="{i18n>custom}" />
+                    <pwd:Password />
+                </VBox>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>

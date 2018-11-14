@@ -5,7 +5,7 @@ The control is an input with password type and parameters to enable validation r
 ## Demo
 You can checkout a live demo here:
 
-https://htmlpreview.github.io/?https://github.com/mauriciolauffer/openui5-password/blob/master/demo/webapp/index.html
+https://mauriciolauffer.github.io/openui5-password/demo/webapp/index.html
 
 [<img src="openui5-password.png">](https://raw.githubusercontent.com/mauriciolauffer/openui5-password/master/openui5-password.png)
 
