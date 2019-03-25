@@ -10,7 +10,8 @@ module.exports = function(config) {
       htmlrunner: false,
       config: {
         theme: 'sap_belize',
-        language: 'EN',
+        language: 'en',
+        logLevel: 'WARNING',
         compatVersion: 'edge',
         preload: 'async',
         libs: 'sap.m',
