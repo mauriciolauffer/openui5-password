@@ -9,7 +9,7 @@ sap.ui.define([
    * @namespace
    * @name openui5.password
    * @author Mauricio Lauffer
-   * @version 0.1.6
+   * @version 0.1.7
    * @public
    */
   return sap.ui.getCore().initLibrary({
@@ -22,6 +22,6 @@ sap.ui.define([
     controls: ['openui5.password.Password'],
     elements: [],
     noLibraryCSS: true,
-    version: '0.1.6'
+    version: '0.1.7'
   });
 }, /* bExport= */ false);
