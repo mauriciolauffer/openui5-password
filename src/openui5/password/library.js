@@ -1,7 +1,6 @@
 sap.ui.define([
-  'jquery.sap.global',
   'sap/ui/core/library'
-], function(jQuery) {
+], function() {
   'use strict';
 
   /**
@@ -13,9 +12,7 @@ sap.ui.define([
    * @version ${version}
    * @public
    */
-  // delegate further initialization of this library to the Core
-  const openui5 = {};
-  sap.ui.getCore().initLibrary({
+  return sap.ui.getCore().initLibrary({
     name: 'openui5.password',
     dependencies: [
       'sap.ui.core',
@@ -27,6 +24,4 @@ sap.ui.define([
     noLibraryCSS: true,
     version: '${version}'
   });
-
-  return openui5.password;
 }, /* bExport= */ false);
