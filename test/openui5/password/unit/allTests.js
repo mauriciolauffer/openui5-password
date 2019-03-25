@@ -1,7 +1,5 @@
 sap.ui.require([
-  'test/unit/Password',
-  'sap/ui/thirdparty/sinon',
-  'sap/ui/thirdparty/sinon-qunit'
+  'test/unit/Password'
 ], function() {
   'use strict';
 
