@@ -1,8 +1,7 @@
 sap.ui.define([
-  'jquery.sap.global',
   'sap/ui/core/Renderer',
   'sap/m/InputBaseRenderer'
-], function(jQuery, Renderer, InputBaseRenderer) {
+], function(Renderer, InputBaseRenderer) {
   'use strict';
 
   /**

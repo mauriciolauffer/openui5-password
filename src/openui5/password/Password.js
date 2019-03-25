@@ -1,14 +1,13 @@
 sap.ui.define([
-  'jquery.sap.global',
   'sap/m/InputBase',
   'sap/m/List',
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
   'sap/ui/core/ValueState',
-  './PasswordRenderer',
-  './thirdparty/zxcvbn',
-  './library'
-], function(jQuery, InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer, zxcvbnUI5) {
+  'openui5/password/PasswordRenderer',
+  'openui5/password/thirdparty/zxcvbn',
+  'openui5/password/library'
+], function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer, zxcvbnUI5) {
   'use strict';
 
   /**
