@@ -4,13 +4,14 @@ sap.ui.require([
   'sap/m/List',
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
-  'openui5/password/Password'
-], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password) {
+  'openui5/password/Password',
+  'test/unit/MemoryLeakCheck'
+], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password, MemoryLeakCheck) {
   'use strict';
 
   function createPasswordHelper() {
     let password = new Password();
-    password.placeAt('content');
+    password.placeAt('qunit-fixture');
     sap.ui.getCore().applyChanges();
     return password;
   }
@@ -47,7 +48,7 @@ sap.ui.require([
 
         const password2 = new Password();
         password2.setEnabled(false);
-        password2.placeAt('content');
+        password2.placeAt('qunit-fixture');
         sap.ui.getCore().applyChanges();
         assert.strictEqual(jQuery('#' + password2.getId() + '-inner').prop('readonly'), true);
         password2.destroy();
@@ -468,7 +469,7 @@ sap.ui.require([
     QUnit.module('_showPasswordErrors()', () => {
       test('Should open a popover', (assert) => {
         const password = new Password();
-        password.placeAt('content');
+        password.placeAt('qunit-fixture');
         sap.ui.getCore().applyChanges();
         password._showPasswordErrors();
         assert.notStrictEqual(password._getPopover(), undefined);
@@ -485,7 +486,7 @@ sap.ui.require([
           requireLowercase: false,
           requireUppercase: false
         });
-        password.placeAt('content');
+        password.placeAt('qunit-fixture');
         sap.ui.getCore().applyChanges();
         password._showPasswordErrors();
         assert.notStrictEqual(password._getPopover(), undefined);
@@ -590,6 +591,13 @@ sap.ui.require([
         assert.strictEqual(password._getPopover().isOpen(), true);
         assert.strictEqual(spy.callCount, 1);
         password.destroy();
+      });
+    });
+
+
+    QUnit.module('Memory Leak Check', () => {
+      MemoryLeakCheck.checkControl('Password', function() {
+        return new Password();
       });
     });
   });
