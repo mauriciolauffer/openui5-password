@@ -1,6 +1,4 @@
-sap.ui.define([
-  'sap/ui/core/library'
-], function() {
+sap.ui.define([], function() {
   'use strict';
 
   /**
@@ -18,10 +16,8 @@ sap.ui.define([
       'sap.ui.core',
       'sap.m'
     ],
-    interfaces: [],
     controls: ['openui5.password.Password'],
-    elements: [],
     noLibraryCSS: true,
     version: '${version}'
   });
-}, /* bExport= */ false);
+});
