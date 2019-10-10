@@ -5,19 +5,33 @@ sap.ui.define([
   'sap/m/StandardListItem',
   'sap/ui/core/ValueState',
   'openui5/password/PasswordRenderer',
-  'openui5/password/thirdparty/zxcvbn',
-  'openui5/password/library'
-], function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer, zxcvbnUI5) {
+  'openui5/password/thirdparty/zxcvbn'
+],
+/**
+ * Module Dependencies
+ *
+ * @param {typeof sap.m.InputBase} InputBase InputBase control
+ * @param {typeof sap.m.List} List List control
+ * @param {typeof sap.m.ResponsivePopover} ResponsivePopover ResponsivePopover control
+ * @param {typeof sap.m.StandardListItem} StandardListItem StandardListItem control
+ * @param {typeof sap.ui.core.ValueState} ValueState ValueState control
+ * @param {object} PasswordRenderer PasswordRenderer render control
+ * @returns {object} Password control, an extended UI5 InputBase control
+ */
+function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer) {
   'use strict';
 
   /**
-   * Password.
+   * OpenUI5 Password.
    *
-   * @namespace
    * @author Mauricio Lauffer
    * @version ${version}
    *
-   * Password extends the InputBase
+   * @class
+   * @namespace
+   * @name openui5.password
+   * @public
+   * @alias openui5.password.Password
    */
   const Password = InputBase.extend('Password', {
     metadata : {
@@ -63,7 +77,15 @@ sap.ui.define([
         errorItems : {type: 'sap.m.StandardListItem', multiple: true, singularName: 'errorItem'}
       }
     },
-    renderer: function(oRm, oControl){
+  /**
+   * Renderer for a new Password.
+   * @extends sap.m.InputBase
+   *
+   * @param {typeof sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
+   * @param {typeof sap.ui.core.Control} oControl an object representation of the control that should be rendered
+   * @public
+   */
+  renderer: function(oRm, oControl){
       PasswordRenderer.render(oRm, oControl);
     }
   });
@@ -89,6 +111,12 @@ sap.ui.define([
     }
   };
 
+  /**
+   * Handle onInput event
+   * 
+   * @param {typeof sap.ui.base.Event} oEvent Event handler
+   * @public
+   */
   Password.prototype.oninput = function(oEvent) {
     InputBase.prototype.oninput.call(this, oEvent);
     if (oEvent.isMarked('invalid')) {
@@ -99,7 +127,7 @@ sap.ui.define([
     this.setScore(score);
   };
 
-  Password.prototype.onfocusin = function(oEvent) {
+  Password.prototype.onfocusin = function() {
     InputBase.prototype.onfocusin.apply(this, arguments);
     this.$().addClass('sapMInputFocused');
     if (this._popover) {
@@ -107,13 +135,13 @@ sap.ui.define([
     }
   };
 
-  Password.prototype.onfocusout = function(oEvent) {
+  Password.prototype.onfocusout = function() {
     InputBase.prototype.onfocusout.apply(this, arguments);
     this.$().removeClass('sapMInputFocused');
     this.closeValueStateMessage(this);
   };
 
-  Password.prototype.onsapfocusleave = function(oEvent) {
+  Password.prototype.onsapfocusleave = function() {
     this._showPasswordErrors();
     InputBase.prototype.onsapfocusleave.apply(this, arguments);
   };
@@ -268,7 +296,7 @@ sap.ui.define([
    * Returns the calculated score of the password.
    * @private
    * @param {string} value - The password value
-   * @return {int} The current score or 0 as default
+   * @return {number} The current score or 0 as default
    */
   Password.prototype._calculateScore = function(value) {
     if (!value || value.length < 1) {
@@ -280,7 +308,7 @@ sap.ui.define([
   /**
    * Defines status according to a given score.
    * @private
-   * @param {int} score - The score value
+   * @param {number} score - The score value
    */
   Password.prototype._setStatus = function(score) {
     const status = this._getStatus(score);
@@ -291,7 +319,7 @@ sap.ui.define([
   /**
    * Returns the current status.
    * @private
-   * @param {int} score - The score value
+   * @param {number} score - The score value
    * @return {object} The status object
    */
   Password.prototype._getStatus = function(score) {
@@ -342,4 +370,4 @@ sap.ui.define([
   };
 
   return Password;
-}, /* bExport= */ true);
+});
