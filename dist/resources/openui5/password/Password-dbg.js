@@ -1,3 +1,9 @@
+/*
+ * openui5-password
+ * (c) Copyright 2017-2019 Mauricio Lauffer
+ * Licensed under the MIT license. See LICENSE file in the project root for full license information.
+ */
+
 sap.ui.define([
   'sap/m/InputBase',
   'sap/m/List',
@@ -6,23 +12,37 @@ sap.ui.define([
   'sap/ui/core/ValueState',
   'openui5/password/PasswordRenderer',
   'openui5/password/thirdparty/zxcvbn',
-  'openui5/password/library'
-], function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer, zxcvbnUI5) {
+],
+/**
+ * Module Dependencies
+ *
+ * @param {typeof sap.m.InputBase} InputBase InputBase control
+ * @param {typeof sap.m.List} List List control
+ * @param {typeof sap.m.ResponsivePopover} ResponsivePopover ResponsivePopover control
+ * @param {typeof sap.m.StandardListItem} StandardListItem StandardListItem control
+ * @param {typeof sap.ui.core.ValueState} ValueState ValueState control
+ * @param {object} PasswordRenderer PasswordRenderer render control
+ * @returns {object} Password control, an extended UI5 InputBase control
+ */
+function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer) {
   'use strict';
 
   /**
-   * Password.
+   * OpenUI5 Password.
    *
-   * @namespace
    * @author Mauricio Lauffer
    * @version 0.1.9
    *
-   * Password extends the InputBase
+   * @class
+   * @namespace
+   * @name openui5.password
+   * @public
+   * @alias openui5.password.Password
    */
   const Password = InputBase.extend('Password', {
-    metadata : {
-      library : 'openui5.password',
-      properties : {
+    metadata: {
+      library: 'openui5.password',
+      properties: {
         /**
          * Indicates that input must contain numbers
          */
@@ -54,18 +74,26 @@ sap.ui.define([
         /**
          * The score is a number which indicates the password strength.
          */
-        score: {type: 'int', group: 'Behavior', defaultValue: 0}
+        score: {type: 'int', group: 'Behavior', defaultValue: 0},
       },
       aggregations: {
         /**
          * ErrorItems are the items which will be shown in the error popup. Changing this aggregation (by calling addSuggestionItem, insertSuggestionItem, removeSuggestionItem, removeAllSuggestionItems, destroySuggestionItems) after input is rendered will open/close the suggestion popup.
          */
-        errorItems : {type: 'sap.m.StandardListItem', multiple: true, singularName: 'errorItem'}
-      }
+        errorItems: {type: 'sap.m.StandardListItem', multiple: true, singularName: 'errorItem'},
+      },
     },
-    renderer: function(oRm, oControl){
+    /**
+   * Renderer for a new Password.
+   * @extends sap.m.InputBase
+   *
+   * @param {typeof sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
+   * @param {typeof sap.ui.core.Control} oControl an object representation of the control that should be rendered
+   * @public
+   */
+    renderer: function(oRm, oControl) {
       PasswordRenderer.render(oRm, oControl);
-    }
+    },
   });
 
   /**
@@ -89,6 +117,12 @@ sap.ui.define([
     }
   };
 
+  /**
+   * Handle onInput event
+   *
+   * @param {typeof sap.ui.base.Event} oEvent Event handler
+   * @public
+   */
   Password.prototype.oninput = function(oEvent) {
     InputBase.prototype.oninput.call(this, oEvent);
     if (oEvent.isMarked('invalid')) {
@@ -99,7 +133,7 @@ sap.ui.define([
     this.setScore(score);
   };
 
-  Password.prototype.onfocusin = function(oEvent) {
+  Password.prototype.onfocusin = function() {
     InputBase.prototype.onfocusin.apply(this, arguments);
     this.$().addClass('sapMInputFocused');
     if (this._popover) {
@@ -107,13 +141,13 @@ sap.ui.define([
     }
   };
 
-  Password.prototype.onfocusout = function(oEvent) {
+  Password.prototype.onfocusout = function() {
     InputBase.prototype.onfocusout.apply(this, arguments);
     this.$().removeClass('sapMInputFocused');
     this.closeValueStateMessage(this);
   };
 
-  Password.prototype.onsapfocusleave = function(oEvent) {
+  Password.prototype.onsapfocusleave = function() {
     this._showPasswordErrors();
     InputBase.prototype.onsapfocusleave.apply(this, arguments);
   };
@@ -173,7 +207,7 @@ sap.ui.define([
     this._popover = new ResponsivePopover(this.getId() + '-popover', {
       title: this._resourceBundle.getText('PASSWORD_POPUP_TITLE'),
       placement: 'Vertical',
-      icon: 'sap-icon://alert'
+      icon: 'sap-icon://alert',
     });
     this._popover.addContent(new List({}));
     this.addDependent(this._popover);
@@ -208,7 +242,7 @@ sap.ui.define([
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NUMBER'),
         info: '[0-9]',
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     regxp = /[a-zA-Z]/;
@@ -216,7 +250,7 @@ sap.ui.define([
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_LETTER'),
         info: '[a-z , A-Z]',
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     regxp = /[a-z]/;
@@ -224,7 +258,7 @@ sap.ui.define([
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_LOWERCASE_LETTER'),
         info: '[a-z]',
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     regxp = /[A-Z]/;
@@ -232,7 +266,7 @@ sap.ui.define([
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_UPPERCASE_LETTER'),
         info: '[A-Z]',
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     regxp = /\W/;
@@ -240,21 +274,21 @@ sap.ui.define([
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_SYMBOL'),
         info: '[!, @, #, $, %, &...]',
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     if (this.getMinLength() > 0 && value.length < this.getMinLength()) {
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NOT_LESS'),
         info: this._resourceBundle.getText('PASSWORD_LIMIT_CHARACTERS', this.getMinLength()),
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     if (this.getMaxLength() > 0 && value.length > this.getMaxLength()) {
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NOT_MORE'),
         info: this._resourceBundle.getText('PASSWORD_LIMIT_CHARACTERS', this.getMaxLength()),
-        infoState:ValueState.Error
+        infoState: ValueState.Error,
       }));
     }
     errors.forEach(function(errorItem) {
@@ -268,7 +302,7 @@ sap.ui.define([
    * Returns the calculated score of the password.
    * @private
    * @param {string} value - The password value
-   * @return {int} The current score or 0 as default
+   * @return {number} The current score or 0 as default
    */
   Password.prototype._calculateScore = function(value) {
     if (!value || value.length < 1) {
@@ -280,7 +314,7 @@ sap.ui.define([
   /**
    * Defines status according to a given score.
    * @private
-   * @param {int} score - The score value
+   * @param {number} score - The score value
    */
   Password.prototype._setStatus = function(score) {
     const status = this._getStatus(score);
@@ -291,47 +325,47 @@ sap.ui.define([
   /**
    * Returns the current status.
    * @private
-   * @param {int} score - The score value
+   * @param {number} score - The score value
    * @return {object} The status object
    */
   Password.prototype._getStatus = function(score) {
     let status = {
       state: ValueState.None,
-      text: ''
+      text: '',
     };
     switch (score) {
       case 0:
         status = {
           state: ValueState.Error,
-          text: this._resourceBundle.getText('PASSWORD_IS_VERY_WEAK')
+          text: this._resourceBundle.getText('PASSWORD_IS_VERY_WEAK'),
         };
         break;
 
       case 1:
         status = {
           state: ValueState.Error,
-          text: this._resourceBundle.getText('PASSWORD_IS_WEAK')
+          text: this._resourceBundle.getText('PASSWORD_IS_WEAK'),
         };
         break;
 
       case 2:
         status = {
           state: ValueState.Warning,
-          text: this._resourceBundle.getText('PASSWORD_IS_NOT_STRONG_ENOUGH')
+          text: this._resourceBundle.getText('PASSWORD_IS_NOT_STRONG_ENOUGH'),
         };
         break;
 
       case 3:
         status = {
           state: ValueState.Success,
-          text: this._resourceBundle.getText('PASSWORD_IS_STRONG')
+          text: this._resourceBundle.getText('PASSWORD_IS_STRONG'),
         };
         break;
 
       case 4:
         status = {
           state: ValueState.Success,
-          text: this._resourceBundle.getText('PASSWORD_IS_VERY_STRONG')
+          text: this._resourceBundle.getText('PASSWORD_IS_VERY_STRONG'),
         };
         break;
 
@@ -342,4 +376,4 @@ sap.ui.define([
   };
 
   return Password;
-}, /* bExport= */ true);
+});

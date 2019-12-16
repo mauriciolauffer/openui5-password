@@ -1,6 +1,10 @@
+/*
+ * ${copyright}
+ */
+
 sap.ui.define([
   'sap/ui/core/Renderer',
-  'sap/m/InputBaseRenderer'
+  'sap/m/InputBaseRenderer',
 ],
 /**
  * Module Dependencies
@@ -24,7 +28,7 @@ function(Renderer, InputBaseRenderer) {
    * @public
    * @alias openui5.password.PasswordRenderer
    */
-   const PasswordRenderer = Renderer.extend(InputBaseRenderer);
+  const PasswordRenderer = Renderer.extend(InputBaseRenderer);
 
   /**
    * Add extra attributes to Password

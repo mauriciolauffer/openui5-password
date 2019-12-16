@@ -1,3 +1,7 @@
+/*
+ * ${copyright}
+ */
+
 sap.ui.define([], function() {
   'use strict';
 
@@ -14,10 +18,10 @@ sap.ui.define([], function() {
     name: 'openui5.password',
     dependencies: [
       'sap.ui.core',
-      'sap.m'
+      'sap.m',
     ],
     controls: ['openui5.password.Password'],
     noLibraryCSS: true,
-    version: '${version}'
+    version: '${version}',
   });
 });

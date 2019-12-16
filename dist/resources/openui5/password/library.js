@@ -1,1 +1,6 @@
-sap.ui.define(["sap/ui/core/library"],function(){"use strict";return sap.ui.getCore().initLibrary({name:"openui5.password",dependencies:["sap.ui.core","sap.m"],interfaces:[],controls:["openui5.password.Password"],elements:[],noLibraryCSS:true,version:"0.1.9"})},false);
+/*
+ * openui5-password
+ * (c) Copyright 2017-2019 Mauricio Lauffer
+ * Licensed under the MIT license. See LICENSE file in the project root for full license information.
+ */
+sap.ui.define([],function(){"use strict";return sap.ui.getCore().initLibrary({name:"openui5.password",dependencies:["sap.ui.core","sap.m"],controls:["openui5.password.Password"],noLibraryCSS:true,version:"0.1.9"})});

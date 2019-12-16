@@ -5,18 +5,18 @@ sap.ui.require([
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
   'openui5/password/Password',
-  'test/unit/MemoryLeakCheck'
+  'test/unit/MemoryLeakCheck',
 ], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password, MemoryLeakCheck) {
   'use strict';
 
   function createPasswordHelper() {
-    let password = new Password();
+    const password = new Password();
     password.placeAt('qunit-fixture');
     sap.ui.getCore().applyChanges();
     return password;
   }
 
-  const { test } = QUnit;
+  const {test} = QUnit;
   const sandbox = (sinon.createSandbox) ? sinon.createSandbox() : sinon.sandbox.create();
   const resourceBundle = sap.ui.getCore().getLibraryResourceBundle('openui5.password');
 
@@ -54,7 +54,6 @@ sap.ui.require([
         password2.destroy();
       });
     });
-
 
 
     QUnit.module('_calculateScore()', () => {
@@ -131,7 +130,7 @@ sap.ui.require([
           requireLetters: false,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         const expectedInfo = '[0-9]';
         let value = 'abcde';
@@ -156,7 +155,7 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         const expectedInfo = '[a-z , A-Z]';
         let value = '123456';
@@ -181,10 +180,10 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: true,
-          requireUppercase: false
+          requireUppercase: false,
         });
-        let value = 'ABCDE';
-        let errors = password._getPasswordErrors(value);
+        const value = 'ABCDE';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 1);
         errors.forEach((err) => {
           assert.strictEqual(err.getInfo(), '[a-z]');
@@ -198,10 +197,10 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: true
+          requireUppercase: true,
         });
-        let value = 'abcde';
-        let errors = password._getPasswordErrors(value);
+        const value = 'abcde';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 1);
         errors.forEach((err) => {
           assert.strictEqual(err.getInfo(), '[A-Z]');
@@ -215,7 +214,7 @@ sap.ui.require([
           requireLetters: false,
           requireSymbols: true,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         const expectedInfo = '[!, @, #, $, %, &...]';
         let value = 'abcde';
@@ -248,11 +247,11 @@ sap.ui.require([
           requireSymbols: false,
           requireLowercase: false,
           requireUppercase: false,
-          minLength: 10
+          minLength: 10,
         });
         const expectedInfo = password.getMinLength() + ' characters';
-        let value = 'abcde1234';
-        let errors = password._getPasswordErrors(value);
+        const value = 'abcde1234';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 1);
         errors.forEach((err) => {
           assert.strictEqual(err.getInfo(), expectedInfo);
@@ -267,11 +266,11 @@ sap.ui.require([
           requireSymbols: false,
           requireLowercase: false,
           requireUppercase: false,
-          maxLength: 10
+          maxLength: 10,
         });
         const expectedInfo = password.getMaxLength() + ' characters';
-        let value = 'abcde123456';
-        let errors = password._getPasswordErrors(value);
+        const value = 'abcde123456';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 1);
         errors.forEach((err) => {
           assert.strictEqual(err.getInfo(), expectedInfo);
@@ -285,7 +284,7 @@ sap.ui.require([
           requireLetters: false,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         let value = 'abcde1';
         let errors = password._getPasswordErrors(value);
@@ -304,7 +303,7 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         let value = 'abcde';
         let errors = password._getPasswordErrors(value);
@@ -323,10 +322,10 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: true,
-          requireUppercase: false
+          requireUppercase: false,
         });
-        let value = 'abcde';
-        let errors = password._getPasswordErrors(value);
+        const value = 'abcde';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 0);
       });
 
@@ -336,10 +335,10 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: true
+          requireUppercase: true,
         });
-        let value = 'ABCDE';
-        let errors = password._getPasswordErrors(value);
+        const value = 'ABCDE';
+        const errors = password._getPasswordErrors(value);
         assert.strictEqual(errors.length, 0);
       });
 
@@ -349,7 +348,7 @@ sap.ui.require([
           requireLetters: false,
           requireSymbols: true,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         let value = '!@#$%';
         let errors = password._getPasswordErrors(value);
@@ -372,7 +371,7 @@ sap.ui.require([
           requireSymbols: false,
           requireLowercase: false,
           requireUppercase: false,
-          minLength: 10
+          minLength: 10,
         });
         let value = 'abcde12345';
         let errors = password._getPasswordErrors(value);
@@ -389,7 +388,7 @@ sap.ui.require([
           requireSymbols: false,
           requireLowercase: false,
           requireUppercase: false,
-          maxLength: 10
+          maxLength: 10,
         });
         let value = 'abcde1234';
         let errors = password._getPasswordErrors(value);
@@ -409,7 +408,6 @@ sap.ui.require([
         assert.strictEqual(password._popover.getId(), password.getId() + '-popover');
         assert.strictEqual(password._popover.getContent()[0] instanceof List, true);
       });
-
     });
 
 
@@ -433,11 +431,11 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: true,
-          requireUppercase: false
+          requireUppercase: false,
         });
-        let value = '12345';
-        let errors = password._getPasswordErrors(value);
-        let popover = password._getPopover(errors);
+        const value = '12345';
+        const errors = password._getPasswordErrors(value);
+        const popover = password._getPopover(errors);
         assert.strictEqual(popover.getContent()[0].getItems().length, 2);
       });
     });
@@ -450,11 +448,11 @@ sap.ui.require([
           requireLetters: true,
           requireSymbols: false,
           requireLowercase: true,
-          requireUppercase: false
+          requireUppercase: false,
         });
-        let value = '12345';
-        let errors = password._getPasswordErrors(value);
-        let oPopover = password._getPopover();
+        const value = '12345';
+        const errors = password._getPasswordErrors(value);
+        const oPopover = password._getPopover();
         assert.strictEqual(oPopover.getContent()[0].getItems().length, 0);
         for (let i = 0; i < 5; i++) {
           password._addPasswordErrorsToPopover(errors);
@@ -463,7 +461,6 @@ sap.ui.require([
         }
       });
     });
-
 
 
     QUnit.module('_showPasswordErrors()', () => {
@@ -484,7 +481,7 @@ sap.ui.require([
           requireLetters: false,
           requireSymbols: false,
           requireLowercase: false,
-          requireUppercase: false
+          requireUppercase: false,
         });
         password.placeAt('qunit-fixture');
         sap.ui.getCore().applyChanges();
@@ -511,7 +508,7 @@ sap.ui.require([
     QUnit.module('oninput()', {
       afterEach: () => {
         sandbox.restore();
-      }
+      },
     }, () => {
       test('Should fire oninput event', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'oninput');
@@ -526,7 +523,7 @@ sap.ui.require([
       test('Should fire oninput event marked as invalid', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'oninput');
         const fakeEvent = {
-          isMarked: () => 'invalid'
+          isMarked: () => 'invalid',
         };
         const password = createPasswordHelper();
         password.setValue('abcd12345');
@@ -541,7 +538,7 @@ sap.ui.require([
     QUnit.module('onfocusin()', {
       afterEach: () => {
         sandbox.restore();
-      }
+      },
     }, () => {
       test('Should fire onfocusin event', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'onfocusin');
@@ -562,7 +559,7 @@ sap.ui.require([
     QUnit.module('onfocusout()', {
       afterEach: () => {
         sandbox.restore();
-      }
+      },
     }, () => {
       test('Should fire onfocusout event', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'onfocusout');
@@ -580,7 +577,7 @@ sap.ui.require([
     QUnit.module('onsapfocusleave()', {
       afterEach: () => {
         sandbox.restore();
-      }
+      },
     }, () => {
       test('Should fire onsapfocusleave event', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'onsapfocusleave');
