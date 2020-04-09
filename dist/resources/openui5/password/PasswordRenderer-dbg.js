@@ -1,12 +1,12 @@
 /*
  * openui5-password
- * (c) Copyright 2017-2019 Mauricio Lauffer
+ * (c) Copyright 2017-2020 Mauricio Lauffer
  * Licensed under the MIT license. See LICENSE file in the project root for full license information.
  */
 
 sap.ui.define([
   'sap/ui/core/Renderer',
-  'sap/m/InputBaseRenderer',
+  'sap/m/InputBaseRenderer'
 ],
 /**
  * Module Dependencies
@@ -22,7 +22,7 @@ function(Renderer, InputBaseRenderer) {
    * OpenUI5 Password renderer.
    *
    * @author Mauricio Lauffer
-   * @version 0.1.10
+   * @version 0.1.11
    *
    * @class
    * @namespace

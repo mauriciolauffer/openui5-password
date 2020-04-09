@@ -17,8 +17,7 @@ sap.ui.define([], function() {
   return sap.ui.getCore().initLibrary({
     name: 'openui5.password',
     dependencies: [
-      'sap.ui.core',
-      'sap.m'
+      'sap.ui.core'
     ],
     controls: ['openui5.password.Password'],
     noLibraryCSS: true,

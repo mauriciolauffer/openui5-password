@@ -1,6 +1,6 @@
 /*
  * openui5-password
- * (c) Copyright 2017-2019 Mauricio Lauffer
+ * (c) Copyright 2017-2020 Mauricio Lauffer
  * Licensed under the MIT license. See LICENSE file in the project root for full license information.
  */
 
@@ -13,17 +13,16 @@ sap.ui.define([], function() {
    * @namespace
    * @name openui5.password
    * @author Mauricio Lauffer
-   * @version 0.1.10
+   * @version 0.1.11
    * @public
    */
   return sap.ui.getCore().initLibrary({
     name: 'openui5.password',
     dependencies: [
-      'sap.ui.core',
-      'sap.m',
+      'sap.ui.core'
     ],
     controls: ['openui5.password.Password'],
     noLibraryCSS: true,
-    version: '0.1.10',
+    version: '0.1.11'
   });
 });
