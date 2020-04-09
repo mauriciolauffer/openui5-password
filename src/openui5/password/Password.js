@@ -9,7 +9,7 @@ sap.ui.define([
   'sap/m/StandardListItem',
   'sap/ui/core/ValueState',
   'openui5/password/PasswordRenderer',
-  'openui5/password/thirdparty/zxcvbn',
+  'openui5/password/thirdparty/zxcvbn'
 ],
 /**
  * Module Dependencies
@@ -72,14 +72,14 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
         /**
          * The score is a number which indicates the password strength.
          */
-        score: {type: 'int', group: 'Behavior', defaultValue: 0},
+        score: {type: 'int', group: 'Behavior', defaultValue: 0}
       },
       aggregations: {
         /**
          * ErrorItems are the items which will be shown in the error popup. Changing this aggregation (by calling addSuggestionItem, insertSuggestionItem, removeSuggestionItem, removeAllSuggestionItems, destroySuggestionItems) after input is rendered will open/close the suggestion popup.
          */
-        errorItems: {type: 'sap.m.StandardListItem', multiple: true, singularName: 'errorItem'},
-      },
+        errorItems: {type: 'sap.m.StandardListItem', multiple: true, singularName: 'errorItem'}
+      }
     },
     /**
    * Renderer for a new Password.
@@ -91,7 +91,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
    */
     renderer: function(oRm, oControl) {
       PasswordRenderer.render(oRm, oControl);
-    },
+    }
   });
 
   /**
@@ -205,7 +205,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
     this._popover = new ResponsivePopover(this.getId() + '-popover', {
       title: this._resourceBundle.getText('PASSWORD_POPUP_TITLE'),
       placement: 'Vertical',
-      icon: 'sap-icon://alert',
+      icon: 'sap-icon://alert'
     });
     this._popover.addContent(new List({}));
     this.addDependent(this._popover);
@@ -240,7 +240,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NUMBER'),
         info: '[0-9]',
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     regxp = /[a-zA-Z]/;
@@ -248,7 +248,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_LETTER'),
         info: '[a-z , A-Z]',
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     regxp = /[a-z]/;
@@ -256,7 +256,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_LOWERCASE_LETTER'),
         info: '[a-z]',
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     regxp = /[A-Z]/;
@@ -264,7 +264,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_UPPERCASE_LETTER'),
         info: '[A-Z]',
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     regxp = /\W/;
@@ -272,21 +272,21 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_SYMBOL'),
         info: '[!, @, #, $, %, &...]',
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     if (this.getMinLength() > 0 && value.length < this.getMinLength()) {
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NOT_LESS'),
         info: this._resourceBundle.getText('PASSWORD_LIMIT_CHARACTERS', this.getMinLength()),
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     if (this.getMaxLength() > 0 && value.length > this.getMaxLength()) {
       errors.push(new StandardListItem({
         title: this._resourceBundle.getText('PASSWORD_MUST_HAVE_NOT_MORE'),
         info: this._resourceBundle.getText('PASSWORD_LIMIT_CHARACTERS', this.getMaxLength()),
-        infoState: ValueState.Error,
+        infoState: ValueState.Error
       }));
     }
     errors.forEach(function(errorItem) {
@@ -329,41 +329,41 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
   Password.prototype._getStatus = function(score) {
     let status = {
       state: ValueState.None,
-      text: '',
+      text: ''
     };
     switch (score) {
       case 0:
         status = {
           state: ValueState.Error,
-          text: this._resourceBundle.getText('PASSWORD_IS_VERY_WEAK'),
+          text: this._resourceBundle.getText('PASSWORD_IS_VERY_WEAK')
         };
         break;
 
       case 1:
         status = {
           state: ValueState.Error,
-          text: this._resourceBundle.getText('PASSWORD_IS_WEAK'),
+          text: this._resourceBundle.getText('PASSWORD_IS_WEAK')
         };
         break;
 
       case 2:
         status = {
           state: ValueState.Warning,
-          text: this._resourceBundle.getText('PASSWORD_IS_NOT_STRONG_ENOUGH'),
+          text: this._resourceBundle.getText('PASSWORD_IS_NOT_STRONG_ENOUGH')
         };
         break;
 
       case 3:
         status = {
           state: ValueState.Success,
-          text: this._resourceBundle.getText('PASSWORD_IS_STRONG'),
+          text: this._resourceBundle.getText('PASSWORD_IS_STRONG')
         };
         break;
 
       case 4:
         status = {
           state: ValueState.Success,
-          text: this._resourceBundle.getText('PASSWORD_IS_VERY_STRONG'),
+          text: this._resourceBundle.getText('PASSWORD_IS_VERY_STRONG')
         };
         break;
 

@@ -4,7 +4,7 @@
 
 sap.ui.define([
   'sap/ui/core/Renderer',
-  'sap/m/InputBaseRenderer',
+  'sap/m/InputBaseRenderer'
 ],
 /**
  * Module Dependencies
