@@ -1,5 +1,5 @@
 sap.ui.require([
-  'test/unit/Password',
+  'test/unit/Password'
 ], function() {
   'use strict';
 
