@@ -10,11 +10,12 @@ sap.ui.require([
 
   function createPasswordHelper() {
     const password = new Password();
-    password.placeAt('qunit-fixture');
+    password.placeAt(domRefId);
     sap.ui.getCore().applyChanges();
     return password;
   }
 
+  const domRefId = 'qunit-fixture';
   const {test} = QUnit;
   const sandbox = (sinon.createSandbox) ? sinon.createSandbox() : sinon.sandbox.create();
   const resourceBundle = sap.ui.getCore().getLibraryResourceBundle('openui5.password');
@@ -47,7 +48,7 @@ sap.ui.require([
 
         const password2 = new Password();
         password2.setEnabled(false);
-        password2.placeAt('qunit-fixture');
+        password2.placeAt(domRefId);
         sap.ui.getCore().applyChanges();
         assert.strictEqual(jQuery('#' + password2.getId() + '-inner').prop('readonly'), true);
         password2.destroy();
@@ -465,7 +466,7 @@ sap.ui.require([
     QUnit.module('_showPasswordErrors()', () => {
       test('Should open a popover', (assert) => {
         const password = new Password();
-        password.placeAt('qunit-fixture');
+        password.placeAt(domRefId);
         sap.ui.getCore().applyChanges();
         password._showPasswordErrors();
         assert.notStrictEqual(password._getPopover(), undefined);
@@ -482,7 +483,7 @@ sap.ui.require([
           requireLowercase: false,
           requireUppercase: false
         });
-        password.placeAt('qunit-fixture');
+        password.placeAt(domRefId);
         sap.ui.getCore().applyChanges();
         password._showPasswordErrors();
         assert.notStrictEqual(password._getPopover(), undefined);
