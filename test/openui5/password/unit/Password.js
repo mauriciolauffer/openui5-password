@@ -4,9 +4,8 @@ sap.ui.require([
   'sap/m/List',
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
-  'openui5/password/Password',
-  'test/unit/MemoryLeakCheck'
-], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password, MemoryLeakCheck) {
+  'openui5/password/Password'
+], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password) {
   'use strict';
 
   function createPasswordHelper() {
@@ -588,13 +587,6 @@ sap.ui.require([
         assert.strictEqual(password._getPopover().isOpen(), true);
         assert.strictEqual(spy.callCount, 1);
         password.destroy();
-      });
-    });
-
-
-    QUnit.module('Memory Leak Check', () => {
-      MemoryLeakCheck.checkControl('Password', function() {
-        return new Password();
       });
     });
   });
