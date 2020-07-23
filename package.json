@@ -16,8 +16,7 @@
   ],
   "main": "dist/resources/openui5/password/library-preload.js",
   "files": [
-    "dist",
-    "demo"
+    "dist"
   ],
   "dependencies": {
     "zxcvbn": "^4.4.2"
