@@ -582,7 +582,7 @@ sap.ui.require([
       test('Should fire onsapfocusleave event', (assert) => {
         const spy = sandbox.spy(Password.prototype, 'onsapfocusleave');
         const password = createPasswordHelper();
-        password.focus();
+        password.onfocusin();
         password.onsapfocusleave();
         assert.notStrictEqual(password._getPopover(), undefined);
         assert.strictEqual(password._getPopover().isOpen(), true);
