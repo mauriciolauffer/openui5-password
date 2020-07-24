@@ -22,7 +22,7 @@ function(Renderer, InputBaseRenderer) {
    * OpenUI5 Password renderer.
    *
    * @author Mauricio Lauffer
-   * @version 0.1.11
+   * @version 0.1.12
    *
    * @class
    * @namespace
