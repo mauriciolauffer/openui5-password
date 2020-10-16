@@ -3,7 +3,7 @@
     "id": "openui5.password",
     "type": "library",
     "applicationVersion": {
-      "version": "0.1.12"
+      "version": "0.1.13"
     },
     "title": "An OpenUI5 Control which checks password strength and validates it against predefined rules."
   },

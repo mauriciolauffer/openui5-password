@@ -1,6 +1,6 @@
 {
   "name": "openui5-password",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "An OpenUI5 Control which checks password strength and validates it against predefined rules",
   "homepage": "https://github.com/mauriciolauffer/openui5-password#readme",
   "author": "Mauricio Lauffer",

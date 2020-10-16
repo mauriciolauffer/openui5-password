@@ -31,7 +31,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
    * OpenUI5 Password.
    *
    * @author Mauricio Lauffer
-   * @version 0.1.12
+   * @version 0.1.13
    *
    * @class
    * @namespace
