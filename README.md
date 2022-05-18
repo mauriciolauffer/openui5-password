@@ -1,9 +1,6 @@
 # openui5-password
 
-![Travis (.org)](https://img.shields.io/travis/mauriciolauffer/openui5-password)
-[![npm](https://img.shields.io/npm/v/openui5-password)](https://www.npmjs.com/package/openui5-password)
-![NPM](https://img.shields.io/npm/l/openui5-password)
-[![linkedin-shield](https://img.shields.io/badge/LinkedIn-black?style=flat-square&logo=linkedin&colorB=555)](https://www.linkedin.com/in/mauriciolauffer)
+[![npm](https://img.shields.io/npm/v/openui5-password)](https://www.npmjs.com/package/openui5-password) [![test](https://github.com/mauriciolauffer/openui5-password/actions/workflows/test.yml/badge.svg)](https://github.com/mauriciolauffer/openui5-password/actions/workflows/test.yml)
 
 An OpenUI5 Control which checks password strength and validates it against pre-defined rules.
 The control is an input with password type and parameters to enable validation rules.
