@@ -1,13 +1,17 @@
+'use strict';
+
 sap.ui.require([
-  'jquery.sap.global',
   'sap/ui/core/ValueState',
   'sap/m/List',
   'sap/m/ResponsivePopover',
   'sap/m/StandardListItem',
   'openui5/password/Password'
-], function(jQuery, ValueState, List, ResponsivePopover, StandardListItem, Password) {
-  'use strict';
-
+], function(ValueState, List, ResponsivePopover, StandardListItem, Password) {
+  /**
+   * Password factory
+   *
+   * @returns {sap.m.Input} Password object
+   */
   function createPasswordHelper() {
     const password = new Password();
     password.placeAt(domRefId);

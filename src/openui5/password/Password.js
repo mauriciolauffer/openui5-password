@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * ${copyright}
  */
@@ -14,23 +16,20 @@ sap.ui.define([
 /**
  * Module Dependencies
  *
- * @param {typeof sap.m.InputBase} InputBase InputBase control
- * @param {typeof sap.m.List} List List control
- * @param {typeof sap.m.ResponsivePopover} ResponsivePopover ResponsivePopover control
- * @param {typeof sap.m.StandardListItem} StandardListItem StandardListItem control
- * @param {typeof sap.ui.core.ValueState} ValueState ValueState control
+ * @param {sap.m.InputBase} InputBase InputBase control
+ * @param {sap.m.List} List List control
+ * @param {sap.m.ResponsivePopover} ResponsivePopover ResponsivePopover control
+ * @param {sap.m.StandardListItem} StandardListItem StandardListItem control
+ * @param {sap.ui.core.ValueState} ValueState ValueState control
  * @param {object} PasswordRenderer PasswordRenderer render control
  * @returns {object} Password control, an extended UI5 InputBase control
  */
 function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer) {
-  'use strict';
-
   /**
    * OpenUI5 Password.
    *
    * @author Mauricio Lauffer
    * @version ${version}
-   *
    * @class
    * @namespace
    * @name openui5.password
@@ -82,13 +81,13 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
       }
     },
     /**
-   * Renderer for a new Password.
-   * @extends sap.m.InputBase
-   *
-   * @param {typeof sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
-   * @param {typeof sap.ui.core.Control} oControl an object representation of the control that should be rendered
-   * @public
-   */
+     * Renderer for a new Password.
+     *
+     * @augments sap.m.InputBase
+     * @param {sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
+     * @param {sap.ui.core.Control} oControl an object representation of the control that should be rendered
+     * @public
+     */
     renderer: function(oRm, oControl) {
       PasswordRenderer.render(oRm, oControl);
     }
@@ -96,6 +95,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Initializes the control
+   *
    * @private
    */
   Password.prototype.init = function() {
@@ -105,6 +105,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Destroys the control
+   *
    * @private
    */
   Password.prototype.exit = function() {
@@ -118,7 +119,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
   /**
    * Handle onInput event
    *
-   * @param {typeof sap.ui.base.Event} oEvent Event handler
+   * @param {sap.ui.base.Event} oEvent Event handler
    * @public
    */
   Password.prototype.oninput = function(oEvent) {
@@ -152,9 +153,10 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Defines the width of the input. Default value is 100%
+   *
    * @public
    * @param {string} sWidth - CSS rule for width
-   * @return {object} sap.m.InputBase
+   * @returns {object} sap.m.InputBase
    */
   Password.prototype.setWidth = function(sWidth) {
     return InputBase.prototype.setWidth.call(this, sWidth || '100%');
@@ -162,8 +164,9 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the width of the input.
+   *
    * @public
-   * @return {string} The current width or 100% as default
+   * @returns {string} The current width or 100% as default
    */
   Password.prototype.getWidth = function() {
     return this.getProperty('width') || '100%';
@@ -171,6 +174,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Display password errors in a popup.
+   *
    * @private
    */
   Password.prototype._showPasswordErrors = function() {
@@ -185,9 +189,10 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns a Popover object which list errors.
+   *
    * @private
-   * @param {array} errors - Array with all errors to be displayed
-   * @return {sap.m.ResponsivePopover} Popover with all errors
+   * @param {Array} errors - Array with all errors to be displayed
+   * @returns {sap.m.ResponsivePopover} Popover with all errors
    */
   Password.prototype._getPopover = function(errors) {
     if (!this._popover) {
@@ -199,6 +204,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Creates a new instance of a Popover object.
+   *
    * @private
    */
   Password.prototype._createPopover = function() {
@@ -213,8 +219,9 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Add messages to the Popover object.
+   *
    * @private
-   * @param {array} errors - Array with all errors to be displayed
+   * @param {Array} errors - Array with all errors to be displayed
    */
   Password.prototype._addPasswordErrorsToPopover = function(errors) {
     const list = this._popover.getContent()[0];
@@ -227,9 +234,10 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Check password rules and returns errors.
+   *
    * @private
    * @param {string} value - The password value to be checked against the rules
-   * @return {array} A list with all errors
+   * @returns {Array} A list with all errors
    */
   Password.prototype._getPasswordErrors = function(value) {
     this.destroyAggregation('errorItems');
@@ -298,9 +306,10 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the calculated score of the password.
+   *
    * @private
    * @param {string} value - The password value
-   * @return {number} The current score or 0 as default
+   * @returns {number} The current score or 0 as default
    */
   Password.prototype._calculateScore = function(value) {
     if (!value || value.length < 1) {
@@ -311,6 +320,7 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Defines status according to a given score.
+   *
    * @private
    * @param {number} score - The score value
    */
@@ -322,9 +332,10 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the current status.
+   *
    * @private
    * @param {number} score - The score value
-   * @return {object} The status object
+   * @returns {object} The status object
    */
   Password.prototype._getStatus = function(score) {
     let status = {
