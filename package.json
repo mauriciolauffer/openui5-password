@@ -26,14 +26,21 @@
   "devDependencies": {
     "@microsoft/eslint-formatter-sarif": "^3.0.0",
     "@openui5/ts-types": "^1.102.0",
+    "@wdio/cli": "^8.24.6",
+    "@wdio/devtools-service": "^8.24.6",
+    "@wdio/local-runner": "^8.24.6",
+    "@wdio/mocha-framework": "^8.24.6",
+    "@wdio/spec-reporter": "^8.24.2",
     "eslint": "^8.15.0",
     "eslint-config-mlauffer-ui5": "^0.3.2",
+    "eslint-plugin-wdio": "^8.20.0",
     "karma": "^6.3.20",
     "karma-chrome-launcher": "^3.1.1",
     "karma-coverage": "^2.2.0",
     "karma-coveralls": "^2.1.0",
     "karma-ui5": "^2.4.0",
-    "ui5-task-copy-resources": "^0.0.1"
+    "ui5-task-copy-resources": "^0.0.1",
+    "wdio-qunit-service": "^0.1.1"
   },
   "ui5": {
     "dependencies": [
@@ -46,10 +53,11 @@
     "start:dist": "ui5 serve --config ui5-dist.yaml",
     "build": "ui5 build --clean-dest",
     "lint": "eslint src test demo",
-    "lint:fix": "eslint src test demo --fix",
     "lint:ci": "eslint src test -f @microsoft/eslint-formatter-sarif -o target/eslint.sarif",
     "test": "karma start",
-    "test:ci": "karma start karma.ci.conf"
+    "test:ci": "karma start karma.ci.conf",
+    "xtest": "wdio run ./test/openui5/password/wdio.conf.mjs --watch",
+    "xtest:ci": "wdio run ./test/openui5/password/wdio.conf.mjs"
   },
   "repository": {
     "type": "git",
