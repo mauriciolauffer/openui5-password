@@ -2,7 +2,7 @@
 
 /*
  * openui5-password
- * (c) Copyright 2017-2022 Mauricio Lauffer
+ * (c) Copyright 2017-2023 Mauricio Lauffer
  * Licensed under the MIT license. See LICENSE file in the project root for full license information.
  */
 
@@ -17,7 +17,6 @@ sap.ui.define([
 ],
 /**
  * Module Dependencies
- *
  * @param {sap.m.InputBase} InputBase InputBase control
  * @param {sap.m.List} List List control
  * @param {sap.m.ResponsivePopover} ResponsivePopover ResponsivePopover control
@@ -29,7 +28,6 @@ sap.ui.define([
 function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, PasswordRenderer) {
   /**
    * OpenUI5 Password.
-   *
    * @author Mauricio Lauffer
    * @version 0.1.14
    * @class
@@ -84,7 +82,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
     },
     /**
      * Renderer for a new Password.
-     *
      * @augments sap.m.InputBase
      * @param {sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
      * @param {sap.ui.core.Control} oControl an object representation of the control that should be rendered
@@ -97,7 +94,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Initializes the control
-   *
    * @private
    */
   Password.prototype.init = function() {
@@ -107,7 +103,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Destroys the control
-   *
    * @private
    */
   Password.prototype.exit = function() {
@@ -120,7 +115,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Handle onInput event
-   *
    * @param {sap.ui.base.Event} oEvent Event handler
    * @public
    */
@@ -155,7 +149,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Defines the width of the input. Default value is 100%
-   *
    * @public
    * @param {string} sWidth - CSS rule for width
    * @returns {object} sap.m.InputBase
@@ -166,7 +159,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the width of the input.
-   *
    * @public
    * @returns {string} The current width or 100% as default
    */
@@ -176,7 +168,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Display password errors in a popup.
-   *
    * @private
    */
   Password.prototype._showPasswordErrors = function() {
@@ -191,7 +182,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns a Popover object which list errors.
-   *
    * @private
    * @param {Array} errors - Array with all errors to be displayed
    * @returns {sap.m.ResponsivePopover} Popover with all errors
@@ -206,7 +196,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Creates a new instance of a Popover object.
-   *
    * @private
    */
   Password.prototype._createPopover = function() {
@@ -221,7 +210,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Add messages to the Popover object.
-   *
    * @private
    * @param {Array} errors - Array with all errors to be displayed
    */
@@ -236,7 +224,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Check password rules and returns errors.
-   *
    * @private
    * @param {string} value - The password value to be checked against the rules
    * @returns {Array} A list with all errors
@@ -308,7 +295,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the calculated score of the password.
-   *
    * @private
    * @param {string} value - The password value
    * @returns {number} The current score or 0 as default
@@ -322,7 +308,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Defines status according to a given score.
-   *
    * @private
    * @param {number} score - The score value
    */
@@ -334,7 +319,6 @@ function(InputBase, List, ResponsivePopover, StandardListItem, ValueState, Passw
 
   /**
    * Returns the current status.
-   *
    * @private
    * @param {number} score - The score value
    * @returns {object} The status object

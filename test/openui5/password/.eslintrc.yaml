@@ -6,5 +6,6 @@ extends:
 env:
   mocha: true
   qunit: true
+  jquery: true
 globals:
   sinon: true

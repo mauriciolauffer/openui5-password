@@ -9,7 +9,6 @@ sap.ui.require([
 ], function(ValueState, List, ResponsivePopover, StandardListItem, Password) {
   /**
    * Password factory
-   *
    * @returns {sap.m.Input} Password object
    */
   function createPasswordHelper() {

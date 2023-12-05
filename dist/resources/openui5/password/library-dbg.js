@@ -2,32 +2,30 @@
 
 /*
  * openui5-password
- * (c) Copyright 2017-2022 Mauricio Lauffer
+ * (c) Copyright 2017-2023 Mauricio Lauffer
  * Licensed under the MIT license. See LICENSE file in the project root for full license information.
  */
 
 sap.ui.define([
-  'sap/ui/core/Core',
+  'sap/ui/core/Lib',
   'sap/ui/core/library',
   'sap/m/library'
 ],
 /**
  * Module Dependencies
- *
- * @param {sap.ui.core.Core} Core - sap.ui.core.Core
+ * @param {sap.ui.core.Lib} Lib - sap.ui.core.Lib
  * @returns {object} openui5.password library
  */
-function(Core) {
+function(Lib) {
   /**
    * OpenUI5 library: openui5.password.
-   *
    * @namespace
    * @name openui5.password
    * @author Mauricio Lauffer
    * @version 0.1.14
    * @public
    */
-  Core.initLibrary({
+  return Lib.init({
     name: 'openui5.password',
     dependencies: [
       'sap.ui.core',
@@ -37,6 +35,4 @@ function(Core) {
     noLibraryCSS: true,
     version: '0.1.14'
   });
-
-  return openui5.password; // eslint-disable-line
 });

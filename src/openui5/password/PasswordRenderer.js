@@ -10,7 +10,6 @@ sap.ui.define([
 ],
 /**
  * Module Dependencies
- *
  * @param {sap.ui.core.Renderer} Renderer Renderer control
  * @param {sap.m.InputBaseRenderer} InputBaseRenderer InputBaseRenderer control
  * @returns {object} PasswordRenderer control, an extended UI5 InputBaseRenderer control
@@ -18,7 +17,6 @@ sap.ui.define([
 function(Renderer, InputBaseRenderer) {
   /**
    * OpenUI5 Password renderer.
-   *
    * @author Mauricio Lauffer
    * @version ${version}
    * @class
@@ -31,7 +29,6 @@ function(Renderer, InputBaseRenderer) {
 
   /**
    * Add extra attributes to Password
-   *
    * @param {sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
    * @param {sap.ui.core.Control} oControl an object representation of the control that should be rendered
    */
