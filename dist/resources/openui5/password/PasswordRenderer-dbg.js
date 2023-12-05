@@ -2,7 +2,7 @@
 
 /*
  * openui5-password
- * (c) Copyright 2017-2022 Mauricio Lauffer
+ * (c) Copyright 2017-2023 Mauricio Lauffer
  * Licensed under the MIT license. See LICENSE file in the project root for full license information.
  */
 
@@ -12,7 +12,6 @@ sap.ui.define([
 ],
 /**
  * Module Dependencies
- *
  * @param {sap.ui.core.Renderer} Renderer Renderer control
  * @param {sap.m.InputBaseRenderer} InputBaseRenderer InputBaseRenderer control
  * @returns {object} PasswordRenderer control, an extended UI5 InputBaseRenderer control
@@ -20,7 +19,6 @@ sap.ui.define([
 function(Renderer, InputBaseRenderer) {
   /**
    * OpenUI5 Password renderer.
-   *
    * @author Mauricio Lauffer
    * @version 0.1.14
    * @class
@@ -33,7 +31,6 @@ function(Renderer, InputBaseRenderer) {
 
   /**
    * Add extra attributes to Password
-   *
    * @param {sap.ui.core.RenderManager} oRm the RenderManager that can be used for writing to the render output buffer
    * @param {sap.ui.core.Control} oControl an object representation of the control that should be rendered
    */
