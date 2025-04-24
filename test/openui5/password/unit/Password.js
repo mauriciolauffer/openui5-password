@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable sonarjs/no-nested-functions */
+
 sap.ui.require([
   'sap/ui/core/ValueState',
   'sap/m/List',
