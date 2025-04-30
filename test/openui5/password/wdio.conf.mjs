@@ -14,12 +14,10 @@ export const config = {
   logLevel: 'warn',
   framework: 'mocha',
   reporters: ['spec'],
-  waitforTimeout: 90000,
 
   services: ['qunit'],
 
   mochaOpts: {
     ui: 'bdd',
-    timeout: 90000
   }
 };
